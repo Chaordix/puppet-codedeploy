@@ -16,10 +16,6 @@
 class codedeploy {
   include codedeploy::params
 
-  if $region {
-    validate_string($region)
-  }
-
   include codedeploy::install
   include codedeploy::service
 }

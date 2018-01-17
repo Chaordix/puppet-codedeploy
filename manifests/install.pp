@@ -3,7 +3,7 @@ class codedeploy::install inherits codedeploy {
   case $::operatingsystem {
     'Ubuntu': {
       exec { 'download_codedeploy-agent':
-        command => "/usr/bin/wget -N https://aws-codedeploy-${region}.s3.amazonaws.com/latest/install -O /opt/codedeploy-install.sh",
+        command => "/usr/bin/wget -N https://aws-codedeploy-${::region}.s3.amazonaws.com/latest/install -O /opt/codedeploy-install.sh",
         path    => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
         creates => '/opt/codedeploy-install.sh',
       } ~>
