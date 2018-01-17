@@ -1,0 +1,4 @@
+# Params
+class codedeploy::params {
+
+}
