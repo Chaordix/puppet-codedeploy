@@ -9,10 +9,12 @@ class codedeploy::install inherits codedeploy {
       } ~>
       file { '/opt/codedeploy-install.sh':
         mode => '0755',
-      } ~>
+      }
+
       exec { 'install_codedeploy-agent':
         command => '/opt/codedeploy-install.sh auto',
         path    => '/sbin:/bin:/usr/bin:/usr/local/bin:/usr/sbin',
+        subscribe => File['/opt/codedeploy-install.sh'],
         refreshonly => true,
       }
     }
